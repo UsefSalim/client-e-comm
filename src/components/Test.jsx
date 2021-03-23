@@ -1,9 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import axios from 'axios'
 
-function Test()
-{
-  
+function Test(){
 const fetchData = async () =>
 {
   try
