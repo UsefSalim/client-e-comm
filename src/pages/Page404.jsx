@@ -1,10 +1,13 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
 function Page404() {
+   useEffect(() => {
+    document.title = "404 Page"
+  }, [])
   return (
-    <div>
+    <>
        404 Page
-    </div>
+    </>
   )
 }
 

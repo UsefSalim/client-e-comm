@@ -1,12 +1,15 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Navbar from '../components/Header/Navbar'
 
 function Login() {
+   useEffect(() => {
+    document.title = "Login Page"
+  }, [])
   return (
-    <div>
+    <>
     <Navbar/>
       Login
-    </div>
+    </>
   )
 }
 
