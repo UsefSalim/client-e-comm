@@ -6,7 +6,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
-import { NavLoginLinks,NavLogoutLinks } from '../../utils/Links'
+import { NavLoginLinks, NavLogoutLinks } from '../../utils/Links'
+import TopNav from './TopNav';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -29,23 +30,24 @@ export default function Navbar(props)
   const [isLogedIn, setLogedIn] = useState(false)
   const fullScreenNav =
     <AppBar position="sticky">
+      <TopNav />
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
           <Link className={classes.links} to="/">
-            E-Commerce
+           Jumix
             </Link>
         </Typography>
-        {NavLoginLinks.map(({ to, name }) => (
-          <Link className={classes.links} to={to}>
+        {NavLoginLinks.map(({ to, name },index) => (
+          <Link key={index} className={classes.links} to={to}>
             <Button className={classes.buttons} size="small" variant="outlined">{name}</Button>
           </Link>
         ))}
         {isLogedIn && (
-          NavLogoutLinks.map(({ to, name }) => (
-          <Link className={classes.links} to={to}>
-            <Button className={classes.buttons} size="small" variant="outlined">{name}</Button>
-          </Link>
-        ))
+          NavLogoutLinks.map(({ to, name },index) => (
+            <Link key={index} className={classes.links} to={to}>
+              <Button className={classes.buttons} size="small" variant="outlined">{name}</Button>
+            </Link>
+          ))
         )}
       </Toolbar>
     </AppBar>
