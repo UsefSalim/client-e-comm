@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import App from './components/App.jsx';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from './theme'
+import store from './redux/configStore.js';
+// import GridItems from './components/Header/GridItems.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
-   <ThemeProvider theme={theme}>
-    <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

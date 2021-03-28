@@ -1,59 +1,27 @@
-import React,{ useState } from 'react';
-import { Link } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core/styles';
-import {Typography,Toolbar ,AppBar,Button,IconButton} from '@material-ui/core';
-import { NavLoginLinks, NavLogoutLinks } from '../../utils/Links'
-import TopNav from './TopNav';
-import StorefrontIcon from '@material-ui/icons/Storefront';
-const useStyles = makeStyles((theme) => ({
-  title: {
-    flexGrow: 1,
-  },
-  links: {
-    textDecoration: "none",
-    color: "white"
-  },
-  buttons: {
-    margin: "0 8px",
-    fontSize: "0.65rem",
-    color: "inherit"
-  }
-}));
 
-export default function Navbar(props)
+// import { IconButton } from '@material-ui/core'
+import { Switch } from '@material-ui/core'
+import React from 'react'
+// import SettingsBrightnessIcon from '@material-ui/icons/SettingsBrightness';
+import {useDispatch,useSelector} from 'react-redux'
+import {switchtheme} from "../../redux/ducks/theme"
+function NavBar()
 {
-  const classes = useStyles();
-  const [isLogedIn, setLogedIn] = useState(false)
-  const fullScreenNav =
-    <AppBar position="sticky">
-      <TopNav />
-      <Toolbar>
-        <Typography variant="h6" className={classes.title}>
-         <IconButton aria-label="delete">
-            <StorefrontIcon />
-          </IconButton>
-          <Link className={classes.links} to="/">
-           Jumix
-            </Link>
-        </Typography>
-        {NavLoginLinks.map(({ to, name },index) => (
-          <Link key={index} className={classes.links} to={to}>
-            <Button className={classes.buttons} size="small" variant="outlined">{name}</Button>
-          </Link>
-        ))}
-        {isLogedIn && (
-          NavLogoutLinks.map(({ to, name },index) => (
-            <Link key={index} className={classes.links} to={to}>
-              <Button className={classes.buttons} size="small" variant="outlined">{name}</Button>
-            </Link>
-          ))
-        )}
-      </Toolbar>
-    </AppBar>
-
+  const theme = useSelector(state => state.theme.theme)
+  const dispatch = useDispatch()
+  const handelSwitchTheme = ()=>{
+    dispatch(switchtheme())
+  }
   return (
-    <>
-      {fullScreenNav}
-    </>
-  );
+    <div>
+       <Switch
+        checked={theme}
+        onChange={handelSwitchTheme}
+        name="checkedA"
+        inputProps={{ 'aria-label': 'secondary checkbox' }}
+      />
+    </div>
+  )
 }
+
+export default NavBar
