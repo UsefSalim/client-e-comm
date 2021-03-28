@@ -27,6 +27,7 @@ import { Switch } from '@material-ui/core'
 // export default NavBar
 
 import React from 'react';
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -66,7 +67,9 @@ export default function NavBar()
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link to="/">Home</Link>
+          <Link to="/login">login</Link>
+          <Link to="/register">register</Link>
           <Switch
             checked={theme}
             onChange={handelSwitchTheme}

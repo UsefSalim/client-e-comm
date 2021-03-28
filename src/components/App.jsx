@@ -8,6 +8,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux'
 import { Paper } from '@material-ui/core'
+import Categorie from '../pages/Categorie'
+import SingleProduct from '../pages/SingleProduct'
 
 function App()
 {
@@ -64,6 +66,8 @@ function App()
             <Route exact path='/' component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+            <Route path='/categorie/:id' component={Categorie} />
+            <Route path='/product/:category/:id' component={SingleProduct} />
             <Route component={Page404} />
           </Switch>
         </Paper>
