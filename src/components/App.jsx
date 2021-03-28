@@ -40,8 +40,8 @@ function App()
         primary: "rgb(212,220,255)",
       },
       background:{
-        paper:"rgb(23,25,51)"
-        // rgb(247,250,251)
+        paper:"rgb(23,25,51)",
+        default : "rgb(27,30,61)"
       },
       primary:{
         light:"rgb(72,105,238)",
