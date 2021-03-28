@@ -13,53 +13,54 @@ import SingleProduct from '../pages/SingleProduct'
 
 function App()
 {
-  const stateTheme = useSelector(state => state.theme.theme)
-  const LightTheme = createMuiTheme({
-    palette: {
-      type:  "light" ,
-      text:{
-        primary: "rgb(18,28,66)",
-      },
-      background:{
-        paper:"rgb(247,250,251)"
-      },
-      primary:{
-        light:"rgb(72,105,238)",
-        main:"rgb(72,105,238)",
-        dark:"rgb(83,150,231)",
-      },
-      info:{
-        light:"rgb(255,255,255)",
-        main:"rgb(255,255,255)",
-        dark:"rgb(27,30,61)",
-      }
-    }
-  });
-  const DarkTheme = createMuiTheme({
-    palette: {
-      type: "dark",
-      text:{
-        primary: "rgb(212,220,255)",
-      },
-      background:{
-        paper:"rgb(23,25,51)",
-        default : "rgb(27,30,61)"
-      },
-      primary:{
-        light:"rgb(72,105,238)",
-        main:"rgb(72,105,238)",
-        dark:"rgb(83,150,231)",
-      },
-      info:{
-        light:"rgb(255,255,255)",
-        main:"rgb(255,255,255)",
-        dark:"rgb(27,30,61)",
-      }
-    }
-  });
+  // const stateTheme = useSelector(state => state.theme.theme)
+  // const LightTheme = createMuiTheme({
+  //   palette: {
+  //     type:  "light" ,
+  //     text:{
+  //       primary: "rgb(18,28,66)",
+  //     },
+  //     background:{
+  //       paper:"rgb(247,250,251)"
+  //     },
+  //     primary:{
+  //       light:"rgb(72,105,238)",
+  //       main:"rgb(72,105,238)",
+  //       dark:"rgb(83,150,231)",
+  //     },
+  //     info:{
+  //       light:"rgb(255,255,255)",
+  //       main:"rgb(255,255,255)",
+  //       dark:"rgb(27,30,61)",
+  //     }
+  //   }
+  // });
+  // const DarkTheme = createMuiTheme({
+  //   palette: {
+  //     type: "dark",
+  //     text:{
+  //       primary: "rgb(212,220,255)",
+  //     },
+  //     background:{
+  //       paper:"rgb(23,25,51)",
+  //       default : "rgb(27,30,61)"
+  //     },
+  //     primary:{
+  //       light:"rgb(72,105,238)",
+  //       main:"rgb(72,105,238)",
+  //       dark:"rgb(83,150,231)",
+  //     },
+  //     info:{
+  //       light:"rgb(255,255,255)",
+  //       main:"rgb(255,255,255)",
+  //       dark:"rgb(27,30,61)",
+  //     }
+  //   }
+  // });
 
   return (
-    <ThemeProvider theme={!stateTheme ? LightTheme : DarkTheme}>
+    //theme={!stateTheme ? LightTheme : DarkTheme}
+    <ThemeProvider >
       <Router>
         <Paper square>
           <Switch>
