@@ -17,7 +17,7 @@ const initialState = {
   categorie: undefined
 }
 
-export default (state = initialState, action) =>
+export const reducerCategories =  (state = initialState, action) =>
 {
   switch (action.type)
   {

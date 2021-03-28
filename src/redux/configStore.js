@@ -1,12 +1,12 @@
 import {createStore,combineReducers,applyMiddleware} from "redux"
 import createSagaMiddleware from 'redux-saga'
 import { watcherSaga } from "./sagas/rootSaga"
-import themeReducer from './ducks/theme'
-import categoriesReducer from './ducks/categories'
+import {reducerTheme} from './ducks/theme'
+import {reducerCategories} from './ducks/categories'
 
 const reducer = combineReducers({
-  theme:themeReducer,
-  categories: categoriesReducer
+  theme:reducerTheme,
+  categories: reducerCategories
 })
 
 // create a saga middleware 
