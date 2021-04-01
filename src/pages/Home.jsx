@@ -1,18 +1,20 @@
-import React ,{useEffect}from 'react'
+import React, { useEffect } from 'react'
 // import Categories from '../components/Header/Categories'
 import NavBar from '../components/Header/NavBar'
 
 
-function Home() {
-  
-  useEffect(() => {
+function Home()
+{
+
+  useEffect(() =>
+  {
     document.title = "Home Page"
   }, [])
   return (
     <>
-      <NavBar/>
+      <NavBar />
       {/* <Categories/> */}
-      home page 
+      home page
     </>
   )
 }

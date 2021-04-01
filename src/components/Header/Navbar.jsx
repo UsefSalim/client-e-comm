@@ -1,9 +1,8 @@
 
-// import { Switch } from '@material-ui/core'
+import { Switch } from '@material-ui/core'
 
-// import { useDispatch, useSelector } from 'react-redux'
-// import { switchtheme } from "../../redux/ducks/theme"
-
+import { useDispatch, useSelector } from 'react-redux'
+import { switchtheme } from "../../redux/ducks/themeSlice"
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
@@ -28,12 +27,8 @@ const useStyles = makeStyles((theme) => ({
 export default function NavBar()
 {
   const classes = useStyles();
-  // const theme = useSelector(state => state.theme.theme)
-  // const dispatch = useDispatch()
-  // const handelSwitchTheme = () =>
-  // {
-  //   dispatch(switchtheme())
-  // }
+  const theme = useSelector(state => state.theme.value)
+  const dispatch = useDispatch()
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -47,12 +42,13 @@ export default function NavBar()
           <Link to="/">Home</Link>
           <Link to="/login">login</Link>
           <Link to="/register">register</Link>
-          {/* <Switch
+          <Link to="/admindashboard">admindashboard</Link>
+          <Switch
             checked={theme}
-            onChange={handelSwitchTheme}
+            onChange={() => dispatch(switchtheme())}
             name="checkedA"
             inputProps={{ 'aria-label': 'secondary checkbox' }}
-          /> */}
+          />
         </Toolbar>
       </AppBar>
     </div>

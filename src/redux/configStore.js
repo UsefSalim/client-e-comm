@@ -1,20 +1,30 @@
-import {createStore,combineReducers,applyMiddleware} from "redux"
+import
+{
+  configureStore,
+  combineReducers,
+  getDefaultMiddleware
+} from "@reduxjs/toolkit";
 import createSagaMiddleware from 'redux-saga'
 import { watcherSaga } from "./sagas/rootSaga"
-import {reducerTheme} from './ducks/theme'
-import {reducerCategories} from './ducks/categories'
+import categoriesSlice from './ducks/categoriesSlice'
+import themeSlice from './ducks/themeSlice'
 
-const reducer = combineReducers({
-  theme:reducerTheme,
-  categories: reducerCategories
-})
 
-// create a saga middleware 
+// create a saga middleware
 const sagaMiddleware = createSagaMiddleware()
 // create a array of middlewares saga
 const middleware = [sagaMiddleware]
-const store = createStore(reducer,{}, applyMiddleware(...middleware))
-///run saga watcher 
+
+
+const reducer = combineReducers({
+  theme: themeSlice,
+  categories: categoriesSlice
+});
+
+
+export default configureStore({
+  reducer,
+  middleware: [...getDefaultMiddleware({ thunk: false }), ...middleware]
+});
 sagaMiddleware.run(watcherSaga)
 
-export default store

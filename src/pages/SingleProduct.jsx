@@ -1,6 +1,7 @@
 import React from 'react'
 
-function SingleProduct() {
+function SingleProduct()
+{
   return (
     <div>
       SingleProduct
